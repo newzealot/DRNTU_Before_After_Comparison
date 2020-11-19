@@ -1,7 +1,7 @@
 from selenium import webdriver
 from PIL import Image
 from openpyxl import load_workbook
-from tkinter import Tk
+from tkinter import Tk, messagebox
 from tkinter.filedialog import askopenfilename
 import os
 
@@ -37,10 +37,14 @@ wb = load_workbook(filepath)
 ws = wb.active
 counter = 1
 for row in ws.values:
-    generate_image(row[0], f'{counter}_old.png')
-    generate_image(row[1], f'{counter}_new.png')
-    combine_image(f'{counter}_old.png', f'{counter}_new.png', f'./Output/{counter}.pdf')
-    counter += 1
+    try:
+        generate_image(row[0], f'{counter}_old.png')
+        generate_image(row[1], f'{counter}_new.png')
+        combine_image(f'{counter}_old.png', f'{counter}_new.png', f'./Output/{counter}.pdf')
+        counter += 1
+    except Exception as e:
+        messagebox.showerror('Error', e)
+
 
 
 
