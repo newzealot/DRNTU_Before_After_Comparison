@@ -12,7 +12,7 @@ Headerless .xlsx file containing two columns - old url column, and new url colum
 
 ## Output
 
-1 pdf file will be created in Output folder.
+1 pdf file per row will be created in Output folder.
 
 ## Notes
 
