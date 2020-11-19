@@ -29,6 +29,7 @@ def combine_image(path1, path2, path3):
     os.remove(path1)
     os.remove(path2)
 
+
 root = Tk()
 root.withdraw()
 filepath = askopenfilename()
@@ -38,7 +39,7 @@ counter = 1
 for row in ws.values:
     generate_image(row[0], f'{counter}_old.png')
     generate_image(row[1], f'{counter}_new.png')
-    combine_image(f'{counter}_old.png', f'{counter}_new.png', f'{counter}.pdf')
+    combine_image(f'{counter}_old.png', f'{counter}_new.png', f'./Output/{counter}.pdf')
     counter += 1
 
 
